@@ -1,4 +1,4 @@
-# 🤖 Windows CMD AI Chatbot
+#  Windows CMD AI Chatbot
 
 Fastest AI chatbot for Windows Command Prompt using Cerebras API!
 
