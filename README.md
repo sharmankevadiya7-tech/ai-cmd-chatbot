@@ -1,54 +1,74 @@
-#  Windows CMD AI Chatbot
-
-Fastest AI chatbot for Windows Command Prompt using Cerebras API!
-
-## 🚀 How to Use
-
-### Prerequisites
-- Windows 10/11
-- Python installed
-
-### Steps to Run
-
-1. **Download the file**
-   - Click `my_ai_bot.py`
-   - Click "Download raw file"
-
-2. **Install required package**
-   ```cmd
-   pip install requests
-Run the bot
-
-cmd
-python my_ai_bot.py
-
 # 🤖 Advanced Windows CMD AI Chatbot
 
-A powerful AI chatbot for Windows Command Prompt using Cerebras API - the fastest AI inference engine!
+<div align="center">
+
+[![Python Version](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://python.org)
+[![Platform](https://img.shields.io/badge/platform-Windows-blue.svg)](https://microsoft.com)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![API](https://img.shields.io/badge/API-Cerebras-orange.svg)](https://cerebras.ai)
+
+### Fastest AI Chatbot for Windows Command Prompt
+**⚡ 2000+ tokens/second | 💻 Native CMD Interface | 🆓 100% Free**
+
+</div>
+
+---
+
+## 📋 Table of Contents
+- [Features](#-features)
+- [Requirements](#-requirements)
+- [Installation Guide](#-installation-guide-step-by-step)
+- [Quick Start](#-quick-start)
+- [Commands](#-commands)
+- [Troubleshooting](#-troubleshooting)
+- [FAQ](#-faq)
+- [Support](#-support)
+
+---
 
 ## ✨ Features
 
-- ⚡ **Lightning Fast** - 2000+ tokens/second response time
-- 💻 **Native Windows CMD** - Pure command-line interface
-- 🎨 **Beautiful UI** - Colored output with professional design
-- 🔒 **Secure** - API key management via environment variables
-- 📝 **Chat History** - Remembers your conversation
+| Feature | Description |
+|---------|-------------|
+| ⚡ **Ultra Fast** | 2000+ tokens/second response time |
+| 💻 **Native CMD** | Works in Windows Command Prompt |
+| 🎨 **Colorful UI** | Professional colored output |
+| 🔒 **Secure** | API key hidden via environment variables |
+| 📝 **Chat History** | Remembers conversation |
+| 🆓 **Free** | Uses Cerebras free tier (no credit card) |
 
-## 🚀 Quick Start
+---
 
-### 1. Prerequisites
-- Windows 10/11
-- Python 3.8 or higher
+## 📦 Requirements
 
-### 2. Installation
+### What You Need Before Starting:
 
-```bash
-# Clone the repository
-git clone (https://github.com/sharmankevadiya7-tech/ai-cmd-chatbot.git)
-cd REPO-NAME
+| Requirement | Version | Check Command |
+|-------------|---------|---------------|
+| **Windows OS** | 10 or 11 | `winver` |
+| **Python** | 3.8 or higher | `python --version` |
+| **Internet** | Yes | For API calls |
 
-# Install dependencies
-pip install -r requirements.txt
+> ⚠️ **Note**: No credit card required. Everything is 100% free!
 
-# Create .env file with your API key
-echo CEREBRAS_API_KEY=your_api_key_here > .env
+---
+
+## 🚀 Installation Guide (Step by Step)
+
+### Step 1: Download and Install Python
+
+#### 1.1 Download Python
+- Go to: https://python.org/downloads
+- Click the yellow **"Download Python 3.x.x"** button
+
+#### 1.2 Install Python
+- Double-click the downloaded file
+- **⚠️ IMPORTANT**: Check ✅ **"Add Python to PATH"** (Very Important!)
+- Click **"Install Now"**
+- Wait 2-3 minutes for installation
+
+#### 1.3 Verify Python Installation
+Open **Command Prompt** (Press `Windows + R`, type `cmd`, press Enter)
+
+```cmd
+python --version
