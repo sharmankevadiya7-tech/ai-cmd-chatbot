@@ -44,7 +44,7 @@ A powerful AI chatbot for Windows Command Prompt using Cerebras API - the fastes
 
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR-USERNAME/REPO-NAME.git
+git clone (https://github.com/sharmankevadiya7-tech/ai-cmd-chatbot.git)
 cd REPO-NAME
 
 # Install dependencies
