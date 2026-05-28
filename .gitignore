@@ -1,7 +1,30 @@
+# API Keys (IMPORTANT!)
+.env
+*.env
+
 # Python
 __pycache__/
 *.pyc
-.env
+*.pyo
+*.pyd
+.Python
+
+# Virtual Environment
 venv/
+env/
+ENV/
+.venv
+
+# IDE
 .vscode/
 .idea/
+*.swp
+*.swo
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Logs
+*.log
