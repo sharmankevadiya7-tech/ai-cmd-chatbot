@@ -72,3 +72,42 @@ Open **Command Prompt** (Press `Windows + R`, type `cmd`, press Enter)
 
 ```cmd
 python --version
+
+Step 2: Download Bot Files
+Option A: Download ZIP (Easiest)
+Go to this repository: https://github.com/YOUR-USERNAME/YOUR-REPO-NAME
+
+Click the green "<> Code" button
+
+Click "Download ZIP"
+
+Extract the ZIP file to your Desktop
+
+Option B: Git Clone (Advanced)
+cmd
+git clone https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
+cd YOUR-REPO-NAME
+
+Step 3: Open Command Prompt in Project Folder
+3.1 Navigate to Project Folder
+
+cmd
+cd Desktop
+cd ai-cmd-chatbot
+
+
+3.2 Verify You're in Correct Folder
+cmd
+dir
+You should see:
+
+text
+advanced_ai_bot.py
+requirements.txt
+
+Step 4: Install Dependencies
+4.1 Install Required Packages
+In Command Prompt (still in project folder):
+
+cmd
+pip install requests python-dotenv
