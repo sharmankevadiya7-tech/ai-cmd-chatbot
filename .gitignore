@@ -1,12 +1,7 @@
-# API Keys (IMPORTANT!)
-.env
-*.env
-
 # Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
+*.so
 .Python
 
 # Virtual Environment
@@ -14,6 +9,15 @@ venv/
 env/
 ENV/
 .venv
+
+# API Keys
+.env
+*.env
+
+# EXE Files
+*.exe
+dist/
+build/
 
 # IDE
 .vscode/
