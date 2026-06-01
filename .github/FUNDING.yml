@@ -1,0 +1,29 @@
+github: [sharmankevadiya7-tech]
+
+# Custom funding page
+custom:
+  - https://github.com/sponsors/sharmankevadiya7-tech
+
+# Cryptocurrency Donations
+# ------------------------------------------------------------
+
+# Bitcoin (BTC) - Native SegWit
+btc: bc1qkt5yz6dh39get7ya87xa9pg6d5ahqgn2n6qdwh
+
+# Ethereum (ETH) - ERC-20
+eth: 0xa986c9b1f00cc90a424af0f865d035db75ca1a31
+
+# Tether (USDT) - ERC-20
+usdt: 0xa986c9b1f00cc90a424af0f865d035db75ca1a31
+
+# Solana (SOL)
+sol: 3Bgb8JdWiJaJjYHESpTmqMRvNMcJVtxZ6EbaY2QH2WWe
+
+# Trust Wallet Token (TWT) - BEP-20 / ERC-20
+twt: 0xa986c9b1f00cc90a424af0f865d035db75ca1a31
+
+# Binance Coin (BNB) - BSC (BEP-20)
+bnb: 0xa986c9b1f00cc90a424af0f865d035db75ca1a31
+
+# USD Coin (USDC) - ERC-20
+usdc: 0xa986c9b1f00cc90a424af0f865d035db75ca1a31
