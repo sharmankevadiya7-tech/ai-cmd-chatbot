@@ -1,1 +1,1 @@
-pip install requests python-dotenv && python -c "import urllib.request; exec(urllib.request.urlopen('https://raw.githubusercontent.com/sharmankevadiya7-tech/ai-cmd-chatbot/main/advanced_ai_bot.py').read())"
+iex (iwr -Uri 'https://raw.githubusercontent.com/sharmankevadiya7-tech/ai-cmd-chatbot/main/advanced_ai_bot.py' -UseBasicParsing).Content
