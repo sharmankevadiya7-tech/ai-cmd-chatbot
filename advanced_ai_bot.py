@@ -8,7 +8,7 @@ import tempfile
 import ctypes
 import time
 
-EXE_DOWNLOAD_URL = "https://github.com/sharmankevadiya7-tech/ai-cmd-chatbot/releases/latest/download/ai-bot.exe"
+EXE_DOWNLOAD_URL = "https://github.com/sharmankevadiya7-tech/ai-cmd-chatbot/releases/download/v1.0.0/ai-bot.exe"
 
 def is_admin():
     try:
